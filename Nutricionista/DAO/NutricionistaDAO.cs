@@ -19,7 +19,7 @@ namespace AcompanhamentoFisico.DAO
             NutricionistaDTO nutricionistaDTO = new NutricionistaDTO();
             Nutricionista nutricionista = new Nutricionista();
 
-            string sql = "select id_nutricionista,nome,CRN from dbo.Nutricionista  where CRN=" + CRN;
+            string sql = "select id_nutricionista,nome,CRN from dbo.Nutricionista  where CRN=" + "'" + CRN +"'";
 
             SqlConnection con = new SqlConnection(conexao);
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -92,7 +92,7 @@ namespace AcompanhamentoFisico.DAO
         public int deletaNutricionista(String CRN)
         {
             String retorno = "";
-            string sql = "delete from dbo.Nutricionista where CRN = " + CRN;
+            string sql = "delete from dbo.Nutricionista where CRN = " + "'" + CRN + "'";
 
             SqlConnection con = new SqlConnection(conexao);
             SqlCommand cmd = new SqlCommand(sql, con);
